@@ -6,13 +6,35 @@ const {
 } = require("../vetores");
 
 function selectionSort(arr) {
+  let comparacoes = 0;
+  let movimentacoes = 0;
+
   const n = arr.length;
+
   for (let i = 0; i < n - 1; i++) {
     let minIndex = i;
-    for (let j = i + 1; j < n; j++) if (arr[j] < arr[minIndex]) minIndex = j;
-    if (minIndex !== i) { let temp = arr[i]; arr[i] = arr[minIndex]; arr[minIndex] = temp; }
+
+    for (let j = i + 1; j < n; j++) {
+      comparacoes++;
+
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    if (minIndex !== i) {
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+
+      movimentacoes += 3;
+    }
   }
-  return arr;
+
+  return {
+    comparacoes,
+    movimentacoes
+  };
 }
 
 function testarVetor(nome, vetor) {
@@ -33,10 +55,10 @@ console.log("========================================");
 
 console.log("\n========== N = 1.000 ==========");
 
-// testarVetor("1 - VETOR ALEATÓRIO", vetores1000.aleatorio);
-// testarVetor("2 - VETOR CRESCENTE", vetores1000.crescente);
-// testarVetor("3 - VETOR DECRESCENTE", vetores1000.decrescente);
-// testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores1000.parcialmenteOrdenado);
+testarVetor("1 - VETOR ALEATÓRIO", vetores1000.aleatorio);
+testarVetor("2 - VETOR CRESCENTE", vetores1000.crescente);
+testarVetor("3 - VETOR DECRESCENTE", vetores1000.decrescente);
+testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores1000.parcialmenteOrdenado);
 
 console.log("\n========== N = 10.000 ==========");
 
@@ -56,10 +78,10 @@ console.log("\n========== N = 50.000 ==========");
 
 console.log("\n========== N = 100.000 ==========");
 
-testarVetor("1 - VETOR ALEATÓRIO", vetores100000.aleatorio);
-testarVetor("2 - VETOR CRESCENTE", vetores100000.crescente);
-testarVetor("3 - VETOR DECRESCENTE", vetores100000.decrescente);
-testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores100000.parcialmenteOrdenado);
+// testarVetor("1 - VETOR ALEATÓRIO", vetores100000.aleatorio);
+// testarVetor("2 - VETOR CRESCENTE", vetores100000.crescente);
+// testarVetor("3 - VETOR DECRESCENTE", vetores100000.decrescente);
+// testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores100000.parcialmenteOrdenado);
 
 console.log("\n========================================");
 console.log("             FIM DOS TESTES");
