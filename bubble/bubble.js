@@ -59,26 +59,26 @@ console.log("========================================");
 
 console.log("\n========== N = 1.000 ==========");
 
-// testarVetor("1 - VETOR ALEATÓRIO", vetores1000.aleatorio);
-// testarVetor("2 - VETOR CRESCENTE", vetores1000.crescente);
-// testarVetor("3 - VETOR DECRESCENTE", vetores1000.decrescente);
-// testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores1000.parcialmenteOrdenado);
+testarVetor("1 - VETOR ALEATÓRIO", vetores1000.aleatorio);
+testarVetor("2 - VETOR CRESCENTE", vetores1000.crescente);
+testarVetor("3 - VETOR DECRESCENTE", vetores1000.decrescente);
+testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores1000.parcialmenteOrdenado);
 
 console.log("\n========== N = 10.000 ==========");
 
-// testarVetor("1 - VETOR ALEATÓRIO", vetores10000.aleatorio);
-// testarVetor("2 - VETOR CRESCENTE", vetores10000.crescente);
-// testarVetor("3 - VETOR DECRESCENTE", vetores10000.decrescente);
-// testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores10000.parcialmenteOrdenado);
+testarVetor("1 - VETOR ALEATÓRIO", vetores10000.aleatorio);
+testarVetor("2 - VETOR CRESCENTE", vetores10000.crescente);
+testarVetor("3 - VETOR DECRESCENTE", vetores10000.decrescente);
+testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores10000.parcialmenteOrdenado);
 
 // Atenção: Bubble Sort pode demorar bastante nesses tamanhos.
 
 console.log("\n========== N = 50.000 ==========");
 
-// testarVetor("1 - VETOR ALEATÓRIO", vetores50000.aleatorio);
-// testarVetor("2 - VETOR CRESCENTE", vetores50000.crescente);
-// testarVetor("3 - VETOR DECRESCENTE", vetores50000.decrescente);
-// testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores50000.parcialmenteOrdenado);
+testarVetor("1 - VETOR ALEATÓRIO", vetores50000.aleatorio);
+testarVetor("2 - VETOR CRESCENTE", vetores50000.crescente);
+testarVetor("3 - VETOR DECRESCENTE", vetores50000.decrescente);
+testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores50000.parcialmenteOrdenado);
 
 console.log("\n========== N = 100.000 ==========");
 

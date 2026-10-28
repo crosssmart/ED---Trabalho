@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gráficos dos Algoritmos</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f4f4f4;
+
+            margin: 0;
+
+            padding: 20px;
+        }
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 25px;
+
+            margin-bottom: 25px;
+        }
+
+        h2 {
+
+            text-align: center;
+
+            font-size: 16px;
+
+            min-height: 38px;
+
+            margin: 0 0 10px 0;
+        }
+
+        /* Organiza os gráficos em duas colunas */
+        .painel-graficos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+        }
+
+        /* Cada gráfico tem tamanho controlado */
+        .grafico-container {
+
+            background: white;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.08);
+
+            min-width: 0;
+        }
+
+        /* Controla a altura dos gráficos */
+        .area-grafico {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 280px;
+        }
+
+        canvas {
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+        }
+
+        /* Em telas menores, usa apenas uma coluna */
+        @media (max-width: 800px) {
+
+            .painel-graficos {
+
+                grid-template-columns: 1fr;
+            }
+
+            .area-grafico {
+
+                height: 260px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Análise dos Algoritmos de Ordenação</h1>
+
+    <main class="painel-graficos">
+
+        
+            <section class="grafico-container">
+
+                <h2>O(N2) - Comparações - Vetor Aleatório</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico0"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Comparações - Vetor Crescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico1"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Comparações - Vetor Decrescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico2"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Comparações - Vetor Parcialmente Ordenado</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico3"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Movimentações - Vetor Aleatório</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico4"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Movimentações - Vetor Crescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico5"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Movimentações - Vetor Decrescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico6"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N2) - Movimentações - Vetor Parcialmente Ordenado</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico7"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Comparações - Vetor Aleatório</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico8"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Comparações - Vetor Crescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico9"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Comparações - Vetor Decrescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico10"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Comparações - Vetor Parcialmente Ordenado</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico11"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Movimentações - Vetor Aleatório</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico12"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Movimentações - Vetor Crescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico13"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Movimentações - Vetor Decrescente</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico14"></canvas>
+
+                </div>
+
+            </section>
+        
+
+            <section class="grafico-container">
+
+                <h2>O(N log N) - Movimentações - Vetor Parcialmente Ordenado</h2>
+
+                <div class="area-grafico">
+
+                    <canvas id="grafico15"></canvas>
+
+                </div>
+
+            </section>
+        
+
+    </main>
+
+    <script>
+
+        // Configurações geradas pelo JavaScript
+        const configuracoes = [{"id":"grafico0","titulo":"O(N2) - Comparações - Vetor Aleatório","datasets":[{"label":"Bubble Sort","data":[499434,49991172,1249926795,4999906340],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[246114,24978853,628340118,2500017514],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico1","titulo":"O(N2) - Comparações - Vetor Crescente","datasets":[{"label":"Bubble Sort","data":[999,9999,49999,99999],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[999,9999,49999,99999],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico2","titulo":"O(N2) - Comparações - Vetor Decrescente","datasets":[{"label":"Bubble Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico3","titulo":"O(N2) - Comparações - Vetor Parcialmente Ordenado","datasets":[{"label":"Bubble Sort","data":[481164,49984122,1249902229,4999746159],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[30915,3042433,76494729,305182019],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico4","titulo":"O(N2) - Movimentações - Vetor Aleatório","datasets":[{"label":"Bubble Sort","data":[738402,75012402,1876220943,7476670410],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[2985,29976,149973,299955],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[246120,24978861,628340132,2500017526],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico5","titulo":"O(N2) - Movimentações - Vetor Crescente","datasets":[{"label":"Bubble Sort","data":[0,0,0,0],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[0,0,0,0],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[999,9999,49999,99999],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico6","titulo":"O(N2) - Movimentações - Vetor Decrescente","datasets":[{"label":"Bubble Sort","data":[1498500,149985000,3749925000,14999850000],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[1500,15000,75000,150000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[500499,50004999,1250024999,5000049999],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico7","titulo":"O(N2) - Movimentações - Vetor Parcialmente Ordenado","datasets":[{"label":"Bubble Sort","data":[98724,9421776,236010432,938689740],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Selection Sort","data":[150,1500,7500,15000],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Insertion Sort","data":[30915,3042433,76494729,305182019],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico8","titulo":"O(N log N) - Comparações - Vetor Aleatório","datasets":[{"label":"Heap Sort","data":[16898,235420,1409644,3019348],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[8673,120534,718284,1536432],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[11444,155796,927442,2044262],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico9","titulo":"O(N log N) - Comparações - Vetor Crescente","datasets":[{"label":"Heap Sort","data":[17583,244460,1455438,3112517],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[5044,69008,401952,853904],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico10","titulo":"O(N log N) - Comparações - Vetor Decrescente","datasets":[{"label":"Heap Sort","data":[15965,226682,1366047,2926640],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[4932,64608,382512,815024],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[499500,49995000,1249975000,4999950000],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico11","titulo":"O(N log N) - Comparações - Vetor Parcialmente Ordenado","datasets":[{"label":"Heap Sort","data":[17471,243491,1451407,3103793],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[7662,111545,673843,1448635],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[29846,562982,2532286,5908437],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico12","titulo":"O(N log N) - Movimentações - Vetor Aleatório","datasets":[{"label":"Heap Sort","data":[9092,124283,737518,1574662],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[9976,133616,784464,1668928],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[5645,72140,417636,950788],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico13","titulo":"O(N log N) - Movimentações - Vetor Crescente","datasets":[{"label":"Heap Sort","data":[9708,131956,773304,1650854],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[9976,133616,784464,1668928],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[0,0,0,0],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico14","titulo":"O(N log N) - Movimentações - Vetor Decrescente","datasets":[{"label":"Heap Sort","data":[8316,116696,698892,1497434],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[9976,133616,784464,1668928],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[500,5000,25000,50000],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]},{"id":"grafico15","titulo":"O(N log N) - Movimentações - Vetor Parcialmente Ordenado","datasets":[{"label":"Heap Sort","data":[9622,130832,771320,1642642],"borderColor":"#e63946","backgroundColor":"#e63946","borderWidth":2,"borderDash":[],"fill":false,"tension":0,"pointStyle":"circle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#e63946","spanGaps":false},{"label":"Merge Sort","data":[9976,133616,784464,1668928],"borderColor":"#0077b6","backgroundColor":"#0077b6","borderWidth":2,"borderDash":[8,4],"fill":false,"tension":0,"pointStyle":"rect","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#0077b6","spanGaps":false},{"label":"Quick Sort","data":[2432,50492,332336,579144],"borderColor":"#2a9d8f","backgroundColor":"#2a9d8f","borderWidth":2,"borderDash":[3,3],"fill":false,"tension":0,"pointStyle":"triangle","pointRadius":4,"pointHoverRadius":7,"pointBorderWidth":2,"pointBackgroundColor":"#ffffff","pointBorderColor":"#2a9d8f","spanGaps":false}]}];
+
+        // Tamanhos do eixo X
+        const tamanhos = ["1.000","10.000","50.000","100.000"];
+
+        // Cria todos os gráficos
+        configuracoes.forEach(grafico => {
+
+            const canvas = document.getElementById(
+                grafico.id
+            );
+
+            new Chart(canvas, {
+
+                type: 'line',
+
+                data: {
+
+                    labels: tamanhos,
+
+                    datasets: grafico.datasets
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    animation: false,
+
+                    interaction: {
+
+                        intersect: false,
+
+                        mode: 'nearest'
+
+                    },
+
+                    plugins: {
+
+                        legend: {
+
+                            position: 'bottom',
+
+                            labels: {
+
+                                usePointStyle: true,
+
+                                boxWidth: 10,
+
+                                padding: 12,
+
+                                font: {
+
+                                    size: 10
+
+                                }
+
+                            }
+                        },
+
+                        tooltip: {
+
+                            callbacks: {
+
+                                label: function(context) {
+
+                                    const algoritmo =
+                                        context.dataset.label;
+
+                                    const valor =
+                                        context.parsed.y;
+
+                                    return algoritmo + ': ' +
+                                        valor.toLocaleString('pt-BR');
+                                }
+                            }
+                        }
+                    },
+
+                    scales: {
+
+                        // Eixo X
+                        x: {
+
+                            type: 'category',
+
+                            offset: false,
+
+                            title: {
+
+                                display: true,
+
+                                text: 'Tamanho N',
+
+                                font: {
+
+                                    size: 11,
+
+                                    weight: 'bold'
+
+                                }
+                            },
+
+                            ticks: {
+
+                                autoSkip: false,
+
+                                maxRotation: 0,
+
+                                minRotation: 0,
+
+                                font: {
+
+                                    size: 10
+
+                                }
+                            },
+
+                            grid: {
+
+                                display: true,
+
+                                color: 'rgba(0, 0, 0, 0.08)'
+
+                            }
+                        },
+
+                        // Eixo Y
+                        y: {
+
+                            type: 'linear',
+
+                            beginAtZero: true,
+
+                            title: {
+
+                                display: true,
+
+                                text: 'Número de Operações',
+
+                                font: {
+
+                                    size: 11,
+
+                                    weight: 'bold'
+
+                                }
+                            },
+
+                            ticks: {
+
+                                maxTicksLimit: 6,
+
+                                precision: 0,
+
+                                callback: function(value) {
+
+                                    return value.toLocaleString(
+                                        'pt-BR'
+                                    );
+                                },
+
+                                font: {
+
+                                    size: 10
+
+                                }
+                            },
+
+                            grid: {
+
+                                color: 'rgba(0, 0, 0, 0.10)',
+
+                                lineWidth: 1
+
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
