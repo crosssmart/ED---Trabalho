@@ -5,7 +5,6 @@ const {
   vetores100000
 } = require("../vetores");
 
-
 function bubbleSort(arr) {
   let n = arr.length;
   let comparacoes = 0;
@@ -54,7 +53,6 @@ function testarVetor(nome, vetor) {
   console.log("Quantidade de movimentações:", resultado.movimentacoes);
 }
 
-// 1.000
 console.log("\n========================================");
 console.log("            TESTE DE VETORES");
 console.log("========================================");
@@ -92,9 +90,3 @@ testarVetor("4 - VETOR PARCIALMENTE ORDENADO", vetores100000.parcialmenteOrdenad
 console.log("\n========================================");
 console.log("             FIM DOS TESTES");
 console.log("========================================\n");
-
-// 10.000
-
-// 50.000
-
-// 100.000
